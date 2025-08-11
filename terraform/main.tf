@@ -29,4 +29,6 @@ provider "proxmox" {
   pm_api_token_secret = var.pm_api_token_secret
   pm_api_url          = var.pm_api_url
   pm_tls_insecure     = true
+  pm_debug = true
+  pm_log_enable = true
 }

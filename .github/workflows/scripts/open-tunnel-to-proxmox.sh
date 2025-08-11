@@ -44,7 +44,7 @@ prepare_cloudflared_at "${tmp_workdir}"
 logfile=$(mktemp)
 
 tunnel_entry_port="$(pick_free_port)"
-tunnel_url="${tunnel_entry_host}:${tunnel_entry_port}"
+tunnel_url="https://${tunnel_entry_host}:${tunnel_entry_port}"
 
 # create tunnel entry on localhost
 # close all of stdin/stdout/stderr off and fork
@@ -64,4 +64,4 @@ echo_to_err ""
 echo_to_err "Log of spawned process:"
 echo_to_err "$(cat "${logfile}")"
 
-echo "TF_VAR_pm_api_url=https://${tunnel_url}/api2/json" >> "$GITHUB_ENV"
+echo "TF_VAR_pm_api_url=${tunnel_url}/api2/json" >> "$GITHUB_ENV"
