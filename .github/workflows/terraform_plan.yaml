@@ -24,6 +24,8 @@ jobs:
         - run: terraform init
           working-directory: "./terraform"
 
+        - run: export TF_LOG=DEBUG
+
         - name: Terraform Plan
           working-directory: "./terraform"
           run: terraform plan
