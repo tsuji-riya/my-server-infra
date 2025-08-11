@@ -10,7 +10,7 @@ resource "proxmox_vm_qemu" "cloned-debian" {
   disk {
     storage = "local-lvm"
     type = "virtio"
-    size = 20
+    size = "20G"
   }
   network {
     model = "virtio"
