@@ -48,7 +48,7 @@ tunnel_url="https://${tunnel_entry_host}:${tunnel_entry_port}"
 
 # create tunnel entry on localhost
 # close all of stdin/stdout/stderr off and fork
-nohup "${tmpz¸¸¸_workdir}/cloudflared" access tcp \
+nohup "${tmp_workdir}/cloudflared" access tcp \
   --id "${tunnel_id}" \
   --secret "${tunnel_secret}" \
   --hostname "${tunnel_host}" \
