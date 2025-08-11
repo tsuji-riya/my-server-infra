@@ -64,4 +64,4 @@ echo_to_err ""
 echo_to_err "Log of spawned process:"
 echo_to_err "$(cat "${logfile}")"
 
-export TF_VAR_pm_api_url="https://${tunnel_url}"
+echo "TF_VAR_pm_api_url=https://${tunnel_url}" >> "$GITHUB_ENV"
