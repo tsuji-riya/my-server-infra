@@ -1,6 +1,7 @@
 resource "proxmox_vm_qemu" "cloned-debian" {
   name = "cloned-debian"
   target_node = "pve"
+  agent = 0
   clone = "debian12-cloudinit"
   full_clone = true
   os_type = "cloud-init"
