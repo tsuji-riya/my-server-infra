@@ -45,13 +45,10 @@ logfile=$(mktemp)
 
 tunnel_entry_port="$(pick_free_port)"
 tunnel_url="https://${tunnel_entry_host}:${tunnel_entry_port}"
-cloudflare_command="${tmp_workdir}/cloudflared access tcp --id \"${tunnel_id}\" --secret \"${tunnel_secret}\" --hostname \"${tunnel_host}\" --url \"${tunnel_url}\""
-
-echo "${cloudflare_command}"
 
 # create tunnel entry on localhost
 # close all of stdin/stdout/stderr off and fork
-nohup "${cloudflare_command}" & disown
+nohup ${tmp_workdir}/cloudflared access tcp --id "${tunnel_id}" --secret "${tunnel_secret}" --hostname "${tunnel_host}" --url "${tunnel_url}" & disown
 
 echo_to_err "Started a tunnel to ${tunnel_host} at ${tunnel_url}"
 
