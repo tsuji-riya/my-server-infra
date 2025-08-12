@@ -51,7 +51,7 @@ echo "${cloudflare_command}"
 
 # create tunnel entry on localhost
 # close all of stdin/stdout/stderr off and fork
-nohup "${cloudflare_command} 0<&- 1> ${logfile}" 2>&1 & disown
+nohup "${cloudflare_command}" & disown
 
 echo_to_err "Started a tunnel to ${tunnel_host} at ${tunnel_url}"
 
